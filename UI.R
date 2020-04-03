@@ -1,28 +1,47 @@
 shinyUI(
-  pageWithSidebar(
-    headerPanel("Entscheidungsregeln"),
+  fluidPage(
+    titlePanel(h2("Entscheidungsregeln")),
     
-    sidebarPanel(
-      selectInput("Regel", "Please select",
-                  choices = c("Kompensatorisch", "Oder", "Konjunktiv")),
-
-      conditionalPanel(condition = "input.Regel == 'Kompensatorisch'", 
-                       textInput("testA", "Please select the miinimal Wert im Test A", 0),
-                       textInput("testB", "Please select the miinimal Wert im Test B", 0)),
-  
-      conditionalPanel(condition ="input.Regel == 'Oder'",
-                       textInput("testAo", "Please select the miinimal Wert im Test A", 0),
-                       textInput("testBo", "Please select the miinimal Wert im Test B", 0)),
+    sidebarLayout(position = "left",
+                  sidebarPanel(
+                    selectInput("Regel", h3("Dargestellte Entscheidungsregel:"),
+                                choices = c("Kompensatorisch", "Oder", "Konjunktiv")),
+      br(),
+      h6("Machen Sie alle  Angaben in C-Werten"),
+      br(),
       
-      conditionalPanel(condition ="input.Regel == 'Konjunktiv'",
-                       textInput("testAk", "Please select the miinimal Wert im Test A", 0),
-                       textInput("testBk", "Please select the miinimal Wert im Test B", 0)),
-    ),
+                    conditionalPanel(condition = "input.Regel == 'Kompensatorisch'", 
+                                     textInput("testA", "Minimaler C-Wert Test A:", 1),
+                                     textInput("testB", "Minimaler C-Wert Test B:", 1)),
+                    
+                    conditionalPanel(condition ="input.Regel == 'Oder'",
+                                     textInput("testAo", "Minimaler C-Wert Test A:", 1),
+                                     textInput("testBo", "Minimaler C-Wert Test B:", 1)),
+                    
+                    conditionalPanel(condition ="input.Regel == 'Konjunktiv'",
+                                     textInput("testAk", "Minimaler C-Wert Test A:", 1),
+                                     textInput("testBk", "Minimaler C-Wert Test B:", 1)),
+      br(),
+   
+                    
+                    br(),
+                    h3("Erzielte Werte von Gertrude"),
+                    textInput("WertA", "C-Wert von Gertrude in Test A:", 4),
+                    textInput("WertB", "C-Wert von Gertrude in Test B:", 3),
+                  ),
+                  
+                  mainPanel("Grafiken",
+                            column(6,plotOutput(outputId="Visualisierungbb", width="600px",height="700px"))
+     
+                  ))
+          )
     
-    mainPanel(
-      plotOutput("Visualisierung")
-    )
-    
-  )
-  
 )
+  
+
+
+
+
+
+
+
