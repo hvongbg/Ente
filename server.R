@@ -91,7 +91,7 @@ shinyServer(
         annotate("rect", xmin=c(1), xmax=c(9),
                  ymin=c(1) , ymax=c(9), alpha=0.0, fill="blue") +
         annotate("pointrange", x = as.numeric(input$WertA), y = as.numeric(input$WertB), ymin = 1, ymax = 1,
-                 colour = "gold1", size = 0.6)
+                 colour = "springgreen4", size = 0.6)
         
       
       
@@ -123,8 +123,7 @@ shinyServer(
       
       p  +
         annotate(geom="text", x= 5, y=9, label="Darstellung der C-Werte",
-                 color="black", size = 9) +
-        theme_minimal()
+                 color="black", size = 9)
     })
    
    output$Visualisierungbb <- renderPlot({
