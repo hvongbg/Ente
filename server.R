@@ -17,12 +17,15 @@ shinyServer(
       
       #Input transformation from C-values to z-values 
       
+      testAA <- as.numeric(input$testA) + (as.numeric(input$testA) -1)
+      testBB <- as.numeric(input$testB) + (as.numeric(input$testB) -1)
+      
       werA <- (as.numeric(input$WertA)-5)/2
       werB <- (as.numeric(input$WertB)-5)/2
       
       
-      teA <- (as.numeric(input$testA)-5)/2
-      teB <- (as.numeric(input$testB)-5)/2
+      teA <- (testAA-5)/2
+      teB <- (testAA-5)/2
       
       teAo <- (as.numeric(input$testAo)-5)/2
       teBo <- (as.numeric(input$testBo)-5)/2
@@ -41,8 +44,11 @@ shinyServer(
 
       
       if(distType == "Kompensatorisch"){
+        
+      
+        
         p <- p +
-          annotate("segment", x = -2, xend = as.numeric(teA) +1.5, y = as.numeric(teB) +1.5, yend = -2, 
+          annotate("segment", x = -2, xend = teA, y = teB, yend = -2, 
                    colour = "coral1", size=2, alpha=0.5) 
         
         
@@ -97,8 +103,12 @@ shinyServer(
       
       
       if(distType == "Kompensatorisch"){
+        
+        testAA <- as.numeric(input$testA) + (as.numeric(input$testA) -1)
+        testBB <- as.numeric(input$testB) + (as.numeric(input$testB) -1)
+        
         p <- p +
-          annotate("segment", x = 1, xend = as.numeric(input$testA) +3, y = as.numeric(input$testB) + 3 , yend = 1, 
+          annotate("segment", x = 1, xend = testAA, y = testBB , yend = 1, 
                    colour = "coral1", size=2, alpha=0.5)   
         
         
