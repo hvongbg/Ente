@@ -42,7 +42,7 @@ shinyServer(
       
       if(distType == "Kompensatorisch"){
         p <- p +
-          annotate("segment", x = -2, xend = as.numeric(teA), y = as.numeric(teB), yend = -2, 
+          annotate("segment", x = -2, xend = as.numeric(teA) +1.5, y = as.numeric(teB) +1.5, yend = -2, 
                    colour = "coral1", size=2, alpha=0.5) 
         
         
@@ -91,14 +91,14 @@ shinyServer(
         annotate("rect", xmin=c(1), xmax=c(9),
                  ymin=c(1) , ymax=c(9), alpha=0.0, fill="blue") +
         annotate("pointrange", x = as.numeric(input$WertA), y = as.numeric(input$WertB), ymin = 1, ymax = 1,
-                 colour = "springgreen4", size = 0.6)
+                 colour = "gold1", size = 0.6)
         
       
       
       
       if(distType == "Kompensatorisch"){
         p <- p +
-          annotate("segment", x = 1, xend = as.numeric(input$testA), y = as.numeric(input$testB), yend = 1, 
+          annotate("segment", x = 1, xend = as.numeric(input$testA) +3, y = as.numeric(input$testB) + 3 , yend = 1, 
                    colour = "coral1", size=2, alpha=0.5)   
         
         
@@ -114,14 +114,11 @@ shinyServer(
       }
       
       else{
-        
-        neuA <- input$testAk +3
-        neuB <- input$testBk +3
         p<- p +
-          annotate("rect", xmin=c(1), xmax= as.numeric(neuA),
+          annotate("rect", xmin=c(1), xmax= as.numeric(input$testAk),
                    ymin=c(1) , ymax=c(9), alpha=0.2, color="lightsalmon3", fill="lightsalmon3") +
           annotate("rect", xmin=c(1), xmax= c(9),
-                   ymin=c(1) , ymax= as.numeric(neuB), alpha=0.2, color="lightsalmon3", fill="lightsalmon3")
+                   ymin=c(1) , ymax= as.numeric(input$testBk), alpha=0.2, color="lightsalmon3", fill="lightsalmon3")
       }
       
       p  +
