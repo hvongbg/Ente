@@ -118,10 +118,10 @@ shinyServer(
         neuA <- input$testAk +3
         neuB <- input$testBk +3
         p<- p +
-          annotate("rect", xmin=c(1), xmax= as.numeric(input$testAk),
+          annotate("rect", xmin=c(1), xmax= as.numeric(neuA),
                    ymin=c(1) , ymax=c(9), alpha=0.2, color="lightsalmon3", fill="lightsalmon3") +
           annotate("rect", xmin=c(1), xmax= c(9),
-                   ymin=c(1) , ymax= as.numeric(input$testBk), alpha=0.2, color="lightsalmon3", fill="lightsalmon3")
+                   ymin=c(1) , ymax= as.numeric(neuB), alpha=0.2, color="lightsalmon3", fill="lightsalmon3")
       }
       
       p  +
