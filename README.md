@@ -1,4 +1,4 @@
-# Ente
+# Ente2
 
 Visualisierung von Entscheidungsregeln
 
