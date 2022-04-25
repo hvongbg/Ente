@@ -1,22 +1,19 @@
 shinyServer(
   function(input, output, session){
     
-     if(require(ggplot2) == T) {  library(ggplot2)
-   
-   } else {install.packages("ggplot2")
-     library(ggplot2) 
-   }
+     if(require(ggplot2) == F) {install.packages("ggplot2")
+   } 
     
  
-     if(require(ggplot2) == T) {  library(gridExtra)
+     if(require(gridExtra) == F) {  install.packages("gridExtra")
    
-   } else {install.packages("gridExtra")
-     library(gridExtra) 
-   }
+   } 
+     
     
     
-    
-    
+    library(ggplot2) 
+    library(gridExtra) 
+  
 
        
     zWerte <- reactive({
