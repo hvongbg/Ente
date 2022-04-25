@@ -7,8 +7,15 @@ shinyServer(
      library(ggplot2) 
    }
     
+ 
+     if(require(ggplot2) == T) {  library(gridExtra)
+   
+   } else {install.packages("gridExtra")
+     library(gridExtra) 
+   }
     
-    library(gridExtra) 
+    
+    
     
 
        
