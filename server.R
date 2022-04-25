@@ -1,6 +1,13 @@
 shinyServer(
   function(input, output, session){
-    library(ggplot2)
+    
+     if(require(ggplot2) == T) {  library(ggplot2)
+   
+   } else {install.packages("ggplot2")
+     library(ggplot2) 
+   }
+    
+    
     library(gridExtra) 
     
 
